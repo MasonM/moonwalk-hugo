@@ -3,9 +3,24 @@
 		{{ partial "header.html" . }}
 	</header>
 
+	{{ $blog := .Site.Data.config.home.blog }}
+	{{ if eq $blog true }}
+		<h2>Blog</h2>
+
+		<ul>
+			{{ $timeformat := .Site.Data.config.home.date_format }}
+			{{ range where .Site.RegularPages "Type" "posts" }}
+				<li class="post-list-item">
+					{{ .Date | time.Format $timeformat }}»
+					<a href="{{ .Permalink }}">{{ .Title }}</a>
+				</li>
+			{{ end }}
+		</ul>
+	{{ end }}
+
 	{{ $portfolio := .Site.Data.config.home.portfolio }}
 	{{ if eq $portfolio true}}
-		<h2>Portfolio</h2>
+		<h2>Active Projects</h2>
 
 		<ul class="horizontal-list">
 			{{ range index .Site.Data.portfolio.projects }}
@@ -22,21 +37,6 @@
 							{{ .description }}
 						</p>
 					</a>
-			{{ end }}
-		</ul>
-	{{ end }}
-
-	{{ $blog := .Site.Data.config.home.blog }}
-	{{ if eq $blog true }}
-		<h2>Blog</h2>
-
-		<ul>
-			{{ $timeformat := .Site.Data.config.home.date_format }}
-			{{ range where .Site.RegularPages "Type" "posts" }}
-				<li class="post-list-item">
-					{{ .Date | time.Format $timeformat }}»
-					<a href="{{ .Permalink }}">{{ .Title }}</a>
-				</li>
 			{{ end }}
 		</ul>
 	{{ end }}
