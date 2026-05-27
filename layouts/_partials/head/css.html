@@ -1,9 +1,9 @@
-{{ with resources.Get "css/list.css" | minify }}
+{{ with resources.Get "css/list.css" }}
     <style>{{ .Content | safeCSS }}</style>
 {{ end }}
-{{ with resources.Get "css/moonwalk.css" | minify }}
+{{ with resources.Get "css/moonwalk.css" }}
     <style>{{ .Content | safeCSS }}</style>
 {{ end }}
-{{ with resources.Get "css/theme.css" | minify }}
+{{ with resources.Get "css/theme.css" }}
     <style>{{ .Content | safeCSS }}</style>
 {{ end }}

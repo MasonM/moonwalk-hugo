@@ -16,7 +16,7 @@
 			</path>
 		</svg>
 	</button>
-	{{- with resources.Get "js/theme.js" | minify }}
+	{{- with resources.Get "js/theme.js" }}
 	<script>{{ .Content | safeJS }}</script>
 	{{- end }}
 </body>
