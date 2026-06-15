@@ -6,6 +6,7 @@
 		camera-orbit="{{ .Get "camera-orbit" }}"
 		field-of-view="30deg"
 		style="width: 100%; {{ .Get "style" | safeCSS }}"
+		interaction-prompt="{{ .Get "interaction-prompt"}}"
 	>
 	</model-viewer>
 	{{ if .Get "caption" }}
