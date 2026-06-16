@@ -1,0 +1,5 @@
+{{ with resources.Get (.Get "src") }}
+  {{ .Content | safeHTML }}
+{{ else }}
+  <span>Svg not found: {{ .Get "src" }}</span>
+{{ end }}
