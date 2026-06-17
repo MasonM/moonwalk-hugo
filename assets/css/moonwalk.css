@@ -73,6 +73,7 @@ blockquote {
 	font-style: italic;
 	border: thin solid black;
 	padding: 1em;
+	overflow-x: auto;
 }
 blockquote p {
 	margin: 0;
