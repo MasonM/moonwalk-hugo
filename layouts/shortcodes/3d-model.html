@@ -8,6 +8,7 @@
 		style="width: 100%; {{ .Get "style" | safeCSS }}"
 		interaction-prompt="{{ .Get "interaction-prompt"}}"
 	>
+		{{ .Inner }}
 	</model-viewer>
 	{{ if .Get "caption" }}
 	<figcaption>{{ .Get "caption" | .Page.RenderString }}</figcaption>
