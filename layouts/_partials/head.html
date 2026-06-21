@@ -5,6 +5,9 @@
 {{ end }}
 <link rel="icon" href="data:,">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{ with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end }}
 {{ partialCached "head/css.html" . }}
 {{ $noop := .WordCount }}
 {{ if .Page.Store.Get "hasMath" }}
